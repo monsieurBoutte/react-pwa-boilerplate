@@ -6,16 +6,17 @@
 
 ## Table of Contents
 
-| Section                  | Description                                                 |
-| :----------------------- | :---------------------------------------------------------- |
-| **Getting Started**      | How to pull down the repo and get started with development  |
-| **Project Structure**    | Directory structure of the project                          |
-| **Service Worker**       | Configuration of Service Worker using **Work Box**          |
-| **Redux Setup**          | Redux configuration using **Easy Peasy**                    |
-| **UI Toolkit**           | Abstractions wrapping **Material UI** components            |
-| **iOS Support**          | Notes on **iOS** and **Safari** support                     |
-| **Netlify Config**       | Notes on config for **Netlify** to support **react router** |
-| **Contributing**         | How to contribute to this repository 😃                     |
-| **Additional Resources** | Resources used to build out this Repo                       |
+| Section                    | Description                                                    |
+| :------------------------- | :------------------------------------------------------------- |
+| **Getting Started**        | How to pull down the repo and get started with development     |
+| **Project Structure**      | Directory structure of the project                             |
+| **Service Worker**         | Configuration of Service Worker using **Work Box**             |
+| **State Management Setup** | Redux configuration using **Easy Peasy**                       |
+| **UI Toolkit**             | Abstractions wrapping **Material UI** components               |
+| **iOS Support**            | Notes on **iOS** and **Safari** support                        |
+| **Routing Setup**          | Configuration for routing and stubbed out Authenticated Routes |
+| **Netlify Config**         | Notes on config for **Netlify** to support **react router**    |
+| **Contributing**           | How to contribute to this repository 😃                        |
+| **Additional Resources**   | Resources used to build out this Repo                          |
 
 > **note:** _This project was initially bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
