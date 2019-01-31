@@ -15,11 +15,6 @@ export const theme = {
     accent2Color: '#d81b60',
     accent3Color: '#e91e63'
   },
-  appBar: {
-    textColor: '#3d5afe',
-    titleFontWeight: 500,
-    color: '#ffffff'
-  },
   bottomNavigation: {
     selectedColor: '#c2185b'
   }
