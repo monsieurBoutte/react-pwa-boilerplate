@@ -8,6 +8,9 @@ export const theme = {
       xl: 1200
     }
   },
+  typography: {
+    useNextVariants: true
+  },
   palette: {
     primary1Color: '#303f9f',
     primary2Color: '#1976d2',

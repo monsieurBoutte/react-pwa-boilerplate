@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { withTheme } from '@material-ui/core/styles';
 import SettingsIcon from '@material-ui/icons/Settings';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,33 +8,39 @@ import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
 
 import { SettingsList } from './settings-list-component';
+import { useThemeSelection } from '../hooks/theme-hooks';
 
-const useNavStyles = makeStyles({
-  root: {
-    flexGrow: 1
-  },
-  appBar: {
-    position: 'sticky',
-    width: '100%',
-    zIndex: 2
-  },
-  settingsIcon: {
-    color: '#fff'
-  },
-  settingsButton: {
-    marginRight: -18
-  },
-  title: {
-    fontSize: '1.125rem',
-    color: '#fff',
-    fontWeight: 800,
-    flexGrow: 1
-  }
-});
+const useNavStyles = ({ currentThemeSelection }) =>
+  makeStyles({
+    root: {
+      flexGrow: 1
+    },
+    appBar: {
+      position: 'sticky',
+      backgroundColor: `#${
+        currentThemeSelection === 'dark' ? 'fff' : '3c3599'
+      } !important`,
+      width: '100%',
+      zIndex: 2
+    },
+    settingsIcon: {
+      color: `#${currentThemeSelection === 'lite' ? 'fff' : '3c3599'}`
+    },
+    settingsButton: {
+      marginRight: -18
+    },
+    title: {
+      fontSize: '1.125rem',
+      color: `#${currentThemeSelection === 'lite' ? 'fff' : '3c3599'}`,
+      fontWeight: 800,
+      flexGrow: 1
+    }
+  });
 
-export const NavBar = () => {
+const NavBar = () => {
   const [settingsDrawer, setSettingsDrawer] = useState(false);
-  const classes = useNavStyles();
+  const { currentThemeSelection } = useThemeSelection();
+  const classes = useNavStyles({ currentThemeSelection })();
 
   return (
     <div className={classes.root}>
@@ -62,3 +69,5 @@ export const NavBar = () => {
     </div>
   );
 };
+
+export default withTheme()(NavBar);

@@ -17,7 +17,6 @@
 | **Routing Setup**             | Configuration for routing and stubbed out Authenticated Routes |
 | **Netlify Config**            | Notes on config for **Netlify** to support **react router**    |
 | **iOS Support**               | Notes on **iOS** and **Safari** support                        |
-| **Contributing**              | How to contribute to this repository                           |
 | **Additional Resources**      | Resources used to build out this Repo                          |
 
 > **note:** _This project was initially bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._

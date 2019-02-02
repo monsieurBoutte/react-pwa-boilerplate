@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useStore, useAction } from 'easy-peasy';
+import React from 'react';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import { makeStyles } from '@material-ui/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -10,6 +9,8 @@ import Switch from '@material-ui/core/Switch';
 import List from '@material-ui/core/List';
 import Icon from '@material-ui/core/Icon';
 
+import { useThemeSelection } from '../hooks/theme-hooks';
+
 const useSettingsStyles = makeStyles({
   root: {
     marginTop: 60,
@@ -18,16 +19,8 @@ const useSettingsStyles = makeStyles({
 });
 
 export const SettingsList = () => {
-  const { currentThemeSelection } = useStore(state => state.settings);
+  const { currentThemeSelection, handleThemeToggle } = useThemeSelection();
   const { root } = useSettingsStyles();
-  const { updateSelectedTheme } = useAction(dispatch => ({
-    updateSelectedTheme: dispatch.settings.updateSelectedTheme
-  }));
-
-  const handleToggle = () =>
-    currentThemeSelection === 'lite'
-      ? updateSelectedTheme('dark')
-      : updateSelectedTheme('lite');
 
   return (
     <div className={root}>
@@ -39,14 +32,14 @@ export const SettingsList = () => {
                 ? 'brightness_5'
                 : 'brightness_4'}
             </Icon>
-            <ListItemText primary="Theme" />
-            <ListItemSecondaryAction>
-              <Switch
-                onChange={() => handleToggle()}
-                checked={currentThemeSelection === 'dark'}
-              />
-            </ListItemSecondaryAction>
           </ListItemIcon>
+          <ListItemText primary="Theme" />
+          <ListItemSecondaryAction>
+            <Switch
+              onChange={() => handleThemeToggle()}
+              checked={currentThemeSelection === 'dark'}
+            />
+          </ListItemSecondaryAction>
         </ListItem>
       </List>
     </div>
