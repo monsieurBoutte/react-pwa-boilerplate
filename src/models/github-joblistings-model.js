@@ -1,8 +1,11 @@
 import { effect } from 'easy-peasy';
 import { fetchJobListings } from '../services/github-joblistings-service';
-import { checkLocalStorage } from '../util/localstorage-util';
+import {
+  checkLocalStorage,
+  setInLocalStorage
+} from '../util/localstorage-util';
 
-// rehydrate the job listings collection and current selection
+// rehydrate the current job selection
 // state from localStorage if it exist
 const initialState = {
   jobListingsCollection: [],
@@ -46,7 +49,7 @@ export const githubJobListingsModel = {
       state.currentJobSelection = payload;
 
       // store the current job selection state offline
-      localStorage.setItem('currentJobSelection', JSON.stringify(payload));
+      setInLocalStorage('currentJobSelection', payload);
     }
   }
 };

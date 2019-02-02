@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div className="h-screen">
+    <div style={{ height: '100vh' }}>
       <h1>home</h1>
     </div>
   );

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import SettingsIcon from '@material-ui/icons/Settings';
+import IconButton from '@material-ui/core/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
-// todo: implement SettingsList
-// import SettingsList from './settings-list-component';
+
+import { SettingsList } from './settings-list-component';
 
 const useNavStyles = makeStyles({
   root: {
@@ -14,8 +14,8 @@ const useNavStyles = makeStyles({
   },
   appBar: {
     position: 'sticky',
-    zIndex: 1400,
-    width: '100%'
+    width: '100%',
+    zIndex: 2
   },
   settingsIcon: {
     color: '#fff'
@@ -37,7 +37,7 @@ export const NavBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appBar}>
+      <AppBar position="absolute" className={classes.appBar}>
         <Toolbar>
           <div className={classes.title}>Git Employed</div>
           <IconButton
@@ -50,17 +50,13 @@ export const NavBar = () => {
         </Toolbar>
       </AppBar>
       <Drawer
+        style={{ position: 'relative', zIndex: 1 }}
         anchor="right"
         open={settingsDrawer}
         onClose={() => setSettingsDrawer(false)}
       >
-        <div
-          tabIndex={0}
-          role="button"
-          onClick={() => setSettingsDrawer(false)}
-          onKeyDown={() => setSettingsDrawer(false)}
-        >
-          {/* <SettingsList /> */}
+        <div tabIndex={0} role="button" style={{ outline: 'none' }}>
+          <SettingsList />
         </div>
       </Drawer>
     </div>

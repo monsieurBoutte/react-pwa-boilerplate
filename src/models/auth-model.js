@@ -2,7 +2,10 @@ import { effect } from 'easy-peasy';
 import { login } from '../services/auth-service';
 import history from '../util/history-util';
 import get from 'lodash/get';
-import { checkLocalStorage } from '../util/localstorage-util';
+import {
+  checkLocalStorage,
+  setInLocalStorage
+} from '../util/localstorage-util';
 
 // rehydrate the auth state from localStorage if it exist
 export const initialState = checkLocalStorage('auth', {
@@ -45,15 +48,12 @@ export const authModel = {
       const user = get(payload, 'user', '');
 
       // store the auth state offline
-      localStorage.setItem(
-        'auth',
-        JSON.stringify({
-          isAuthenticated,
-          merchant,
-          token,
-          user
-        })
-      );
+      setInLocalStorage('auth', {
+        isAuthenticated,
+        merchant,
+        token,
+        user
+      });
 
       state.isAuthenticated = isAuthenticated;
       state.merchant = merchant;

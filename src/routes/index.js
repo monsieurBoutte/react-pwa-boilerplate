@@ -5,16 +5,6 @@ import { NavBar } from '../components/navbar-component';
 import Home from '../pages/home-page';
 import history from '../util/history-util';
 
-// if authenticated routes are needed, you can use this RestrictedArea
-const RestrictedArea = () => {
-  return (
-    <Switch>
-      {/* <PrivateRoute path="/something-private" component={SomethingPrivate} /> */}
-      {/* <PrivateRoute path="/admin-profile" component={AdminProfile} /> */}
-    </Switch>
-  );
-};
-
 export const Routes = () => (
   <Router history={history}>
     <Switch>
@@ -25,3 +15,12 @@ export const Routes = () => (
     </Switch>
   </Router>
 );
+
+// if authenticated routes are needed, you can use this RestrictedArea
+const RestrictedArea = () => {
+  return (
+    <Switch>
+      {/* <PrivateRoute path="/something-private" component={SomethingPrivate} /> */}
+    </Switch>
+  );
+};

@@ -32,6 +32,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-app-rewired": "^2.0.2"
+    "react-app-rewired": "^2.0.2",
+    "redux-devtools-extension": "^2.13.7",
+    "remote-redux-devtools": "^0.5.16"
   }
 }
