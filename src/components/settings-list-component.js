@@ -2,17 +2,16 @@ import React from 'react';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import { makeStyles } from '@material-ui/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItem from '@material-ui/core/ListItem';
 import Switch from '@material-ui/core/Switch';
 import List from '@material-ui/core/List';
 import Icon from '@material-ui/core/Icon';
-
 import { useThemeSelection } from '../hooks/theme-hooks';
 
 const useSettingsStyles = makeStyles({
   root: {
+    height: '100vh',
     marginTop: 60,
     width: 250
   }
@@ -23,17 +22,46 @@ export const SettingsList = () => {
   const { root } = useSettingsStyles();
 
   return (
-    <div className={root}>
-      <List subheader={<ListSubheader>Settings</ListSubheader>}>
+    <div
+      className={root}
+      style={{
+        backgroundColor: `#${
+          currentThemeSelection === 'lite' ? 'cbcbcb' : '3c3599'
+        }`
+      }}
+    >
+      <List
+        subheader={
+          <ListSubheader
+            style={{
+              color: `#${currentThemeSelection === 'lite' ? '5b5b5b' : 'fff'}`,
+              fontWeight: 700
+            }}
+          >
+            Settings
+          </ListSubheader>
+        }
+      >
         <ListItem>
           <ListItemIcon>
-            <Icon>
+            <Icon
+              style={{
+                color: `#${currentThemeSelection === 'lite' ? '5b5b5b' : 'fff'}`
+              }}
+            >
               {currentThemeSelection === 'lite'
                 ? 'brightness_5'
                 : 'brightness_4'}
             </Icon>
           </ListItemIcon>
-          <ListItemText primary="Theme" />
+          <div
+            style={{
+              color: `#${currentThemeSelection === 'lite' ? '5b5b5b' : 'fff'}`,
+              fontWeight: 700
+            }}
+          >
+            Theme
+          </div>
           <ListItemSecondaryAction>
             <Switch
               onChange={() => handleThemeToggle()}

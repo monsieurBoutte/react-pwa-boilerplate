@@ -4,23 +4,26 @@ import { makeStyles } from '@material-ui/styles';
 
 import { useThemeSelection } from '../hooks/theme-hooks';
 
-const useHomePageStyles = ({ currentThemeSelection }) =>
-  makeStyles({
-    root: {
-      paddingTop: '3rem',
-      backgroundColor: `#${
-        currentThemeSelection === 'lite' ? 'fff' : '3c3599'
-      }`,
-      height: '100vh'
-    }
-  });
+const useHomePageStyles = makeStyles({
+  root: {
+    paddingTop: '3rem',
+    height: '100vh'
+  }
+});
 
 const Home = () => {
   const { currentThemeSelection } = useThemeSelection();
-  const classes = useHomePageStyles({ currentThemeSelection })();
+  const classes = useHomePageStyles();
 
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      style={{
+        backgroundColor: `#${
+          currentThemeSelection === 'lite' ? 'cbcbcb' : '3c3599'
+        }`
+      }}
+    >
       <h1>home</h1>
     </div>
   );
