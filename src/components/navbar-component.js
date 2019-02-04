@@ -9,6 +9,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
 import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
 import Badge from '@material-ui/core/Badge';
@@ -60,13 +61,11 @@ const NavBar = () => {
           >
             <SearchIcon className={classes.navIcon} />
           </IconButton>
-          <IconButton
-            className={classes.settingsButton}
-            aria-label="Favorites"
-            // onClick={() => setSettingsDrawer(true)}
-          >
+          <IconButton className={classes.settingsButton} aria-label="Favorites">
             {favoriteLyrics.length < 1 ? (
-              <FavoriteBorderIcon className={classes.navIcon} />
+              <Tooltip title="no favorites" placement="bottom">
+                <FavoriteBorderIcon className={classes.navIcon} />
+              </Tooltip>
             ) : (
               <Badge
                 badgeContent={favoriteLyrics.length}
@@ -92,9 +91,9 @@ const NavBar = () => {
       </AppBar>
       <Drawer
         style={{ position: 'relative', zIndex: 1 }}
-        anchor="right"
-        open={settingsDrawer}
         onClose={() => setSettingsDrawer(false)}
+        open={settingsDrawer}
+        anchor="right"
       >
         <div tabIndex={0} role="button" style={{ outline: 'none' }}>
           <SettingsList />

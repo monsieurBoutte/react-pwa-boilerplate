@@ -24,23 +24,20 @@ export const Lyrics = () => {
         <hr style={{ color: '#3c359966' }} />
       </div>
       <div className={btnGroup} style={{ paddingBottom: '1rem' }}>
-        <IconButton>
-          <Icon onClick={() => updateCurrentLyrics('')} color="primary">
-            thumb_down
-          </Icon>
+        <IconButton onClick={() => updateCurrentLyrics('')}>
+          <Icon color="primary">thumb_down</Icon>
         </IconButton>
-        <IconButton>
-          <FavoriteIcon
-            onClick={() =>
-              addToFavoriteLyrics({
-                artist,
-                song,
-                lyrics,
-                lyricsExpanded: false
-              })
-            }
-            color="secondary"
-          />
+        <IconButton
+          onClick={() =>
+            addToFavoriteLyrics({
+              artist,
+              song,
+              lyrics,
+              lyricsExpanded: false
+            })
+          }
+        >
+          <FavoriteIcon color="secondary" />
         </IconButton>
       </div>
     </Card>
