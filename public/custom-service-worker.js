@@ -1,7 +1,12 @@
-importScripts("/precache-manifest.522d21dcae90c32e6e1ae4b575616cfe.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.62a19f7c9558f0b984a88b3f73e292af.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // See https://developers.google.com/web/tools/workbox/guides/configure-workbox
 workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
+
+workbox.core.setCacheNameDetails({
+  prefix: 'git-lyrics',
+  suffix: 'v1'
+});
 
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event =>
@@ -11,6 +16,27 @@ self.addEventListener('activate', event =>
 // We need this in Webpack plugin (refer to swSrc option): https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#full_injectmanifest_config
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
+// Set up staleWhileRevalidate strategy on javascript, css and any html files
+// stale while revalidating link: https://developers.google.com/web/tools/workbox/modules/workbox-strategies
+workbox.routing.registerRoute(
+  /\.(?:js|css|html)$/,
+  workbox.strategies.staleWhileRevalidate()
+);
+
+/***************************    💰 Caching Strategies 💰    ***************************/
 // app-shell
-workbox.routing.registerRoute('/', workbox.strategies.networkFirst());
+workbox.routing.registerRoute('/', workbox.strategies.staleWhileRevalidate());
+
+// favorites page
+workbox.routing.registerRoute(
+  '/favorites',
+  workbox.strategies.staleWhileRevalidate()
+);
+
+/***************************    ⚔️ core api strategies ⚔️    ***************************/
+workbox.routing.registerRoute(
+  new RegExp('https://api.lyrics.ovh/v1/chevelle/closure}'),
+  workbox.strategies.networkFirst(),
+  'GET'
+);
 
