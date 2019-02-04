@@ -1,4 +1,4 @@
-import { useLayoutEffect, useDebugValue } from 'react';
+import { useDebugValue } from 'react';
 import { useStore, useAction } from 'easy-peasy';
 
 export const useThemeSelection = () => {
@@ -11,10 +11,6 @@ export const useThemeSelection = () => {
     currentThemeSelection === 'lite'
       ? updateSelectedTheme('dark')
       : updateSelectedTheme('lite');
-
-  useLayoutEffect(() => {
-    console.log('useThemeSelection mounted');
-  }, [currentThemeSelection]);
 
   useDebugValue(currentThemeSelection);
 

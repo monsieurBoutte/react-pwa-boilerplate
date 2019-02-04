@@ -4,6 +4,6 @@ import NavBar from '../components/navbar-component';
 export const Layout = props => (
   <Fragment>
     <NavBar />
-    {props.children}
+    <div style={{ marginTop: '3rem' }}>{props.children}</div>
   </Fragment>
 );

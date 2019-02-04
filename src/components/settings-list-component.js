@@ -12,7 +12,7 @@ import { useThemeSelection } from '../hooks/theme-hooks';
 const useSettingsStyles = makeStyles({
   root: {
     height: '100vh',
-    marginTop: 60,
+    marginTop: '3.5rem',
     width: 250
   }
 });

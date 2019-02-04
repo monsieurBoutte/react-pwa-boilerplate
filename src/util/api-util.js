@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /**
- *
+ * axios abstraction
  * @param {string} method
  * @param {string} baseUrl
  * @param {string} route
