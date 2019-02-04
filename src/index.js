@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { StoreProvider } from 'easy-peasy';
 import store from './configureStore';
-import * as serviceWorker from './serviceWorker';
+import registerServiceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Routes } from './routes';
 import { theme } from './styles/custom-theme-style';
@@ -22,4 +22,4 @@ ReactDOM.render(
 );
 
 // Learn more about service workers in CRA: http://bit.ly/CRA-PWA
-serviceWorker.register();
+registerServiceWorker();

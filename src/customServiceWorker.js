@@ -3,7 +3,7 @@ workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
 
 workbox.core.setCacheNameDetails({
   prefix: 'git-lyrics',
-  suffix: 'v1'
+  suffix: 'v2'
 });
 
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
