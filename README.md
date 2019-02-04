@@ -30,7 +30,6 @@ react-pwa-boilerplate/
     ├── build/                          <-- final output destination for the entire app
     └── public/
         ├── _redirects                  <-- single page app routing for netlify
-        ├── custom-service-worker.js    <-- out put from buildstep of customServiceWorker.js
         └── manifest.json               <-- manifest for the pwa
     └── src/
         ├── components/
@@ -72,7 +71,32 @@ react-pwa-boilerplate/
 
 - **build step configuration:**
   _this is already set up within the project in the `config-overrides` file._
-  <img width="732" alt="screen shot 2019-01-20 at 4 58 36 pm" src="https://user-images.githubusercontent.com/15992455/52167436-ee12fa00-26e8-11e9-8543-f6a4e38fc4bf.png">
+
+```
+// config-overrides.js
+/* config-overrides.js */
+
+const {
+  rewireWorkboxInject,
+  defaultInjectConfig
+} = require('react-app-rewire-workbox');
+const path = require('path');
+
+module.exports = function override(config, env) {
+  if (env === 'production') {
+    console.log('Production build - Adding Workbox for PWAs');
+    // Extend the default injection config with required swSrc
+    const workboxConfig = {
+      ...defaultInjectConfig,
+      swSrc: path.join(__dirname, 'src', 'customServiceWorker.js'),
+      importWorkboxFrom: 'local'
+    };
+    config = rewireWorkboxInject(workboxConfig)(config, env);
+  }
+
+  return config;
+};
+```
 
 ---
 
