@@ -31,7 +31,14 @@ export const Lyrics = () => {
         </IconButton>
         <IconButton>
           <FavoriteIcon
-            onClick={() => addToFavoriteLyrics({ artist, song, lyrics })}
+            onClick={() =>
+              addToFavoriteLyrics({
+                artist,
+                song,
+                lyrics,
+                lyricsExpanded: false
+              })
+            }
             color="secondary"
           />
         </IconButton>

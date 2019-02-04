@@ -11,11 +11,13 @@ import './index.css';
 const customTheme = createMuiTheme(theme);
 
 ReactDOM.render(
-  <StoreProvider store={store}>
-    <MuiThemeProvider theme={customTheme}>
-      <Routes />
-    </MuiThemeProvider>
-  </StoreProvider>,
+  <div className="App">
+    <StoreProvider store={store}>
+      <MuiThemeProvider theme={customTheme}>
+        <Routes />
+      </MuiThemeProvider>
+    </StoreProvider>
+  </div>,
   document.getElementById('root')
 );
 

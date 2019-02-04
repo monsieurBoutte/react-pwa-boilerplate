@@ -50,7 +50,9 @@ const NavBar = () => {
     <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
         <Toolbar>
-          <div className={classes.title}>Git Lyrics</div>
+          <div onClick={() => history.push('/')} className={classes.title}>
+            Git Lyrics
+          </div>
           <IconButton
             className={classes.settingsButton}
             aria-label="Search"
@@ -69,9 +71,10 @@ const NavBar = () => {
               <Badge
                 badgeContent={favoriteLyrics.length}
                 color="secondary"
-                // onClick={() => history.push('/shopping-cart')}
+                onClick={() => history.push('/favorites')}
               >
                 <FavoriteIcon
+                  onClick={() => history.push('/favorites')}
                   style={{ fontSize: '2.5rem' }}
                   className={classes.navIcon}
                 />

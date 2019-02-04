@@ -50,7 +50,7 @@ export const musicModel = {
        *  makes it 👇 easy to update deeply nested items.
        */
       state.favoriteLyrics = favoriteLyricsWithAddition;
-      // store the customer selection state offline
+      // store favorite lyrics state offline
       setInLocalStorage('favoriteLyrics', favoriteLyricsWithAddition);
     },
     updateIsLyricsLoading: (state, payload) => {
@@ -67,6 +67,25 @@ export const musicModel = {
     },
     updateCurrentLyrics: (state, payload) => {
       state.lyrics = payload;
+    },
+    toggleVisibility: (state, payload) => {
+      const { index, visible } = payload;
+      const updatedCollection = state.favoriteLyrics.map((element, i) =>
+        i === index ? { ...element, lyricsExpanded: visible } : element
+      );
+      state.favoriteLyrics = updatedCollection;
+    },
+    nixFromList: (state, payload) => {
+      const { index } = payload;
+      const updatedCollection = state.favoriteLyrics.filter(
+        (_, i) => i !== index
+      );
+      state.favoriteLyrics = updatedCollection;
+      // if the array is empty, nix the key from localStorage
+      if (updatedCollection.length === 0)
+        localStorage.removeItem('favoriteLyrics');
+      // otherwise, store updated favorite lyrics state offline
+      setInLocalStorage('favoriteLyrics', updatedCollection);
     },
     purgeFavorites: (state, payload) => {
       state.favoriteLyrics = [];

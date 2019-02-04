@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Switch from '@material-ui/core/Switch';
 import List from '@material-ui/core/List';
 import Icon from '@material-ui/core/Icon';
-import { useThemeSelection } from '../hooks/theme-hooks';
+import { useThemeSelection } from '../hooks/theme-hook';
 
 const useSettingsStyles = makeStyles({
   root: {

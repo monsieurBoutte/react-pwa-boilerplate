@@ -8,7 +8,7 @@ import Card from '@material-ui/core/Card';
 
 import { InputField } from '../components/input-field-component';
 import { Lyrics } from '../components/lyrics-component';
-import { useThemeSelection } from '../hooks/theme-hooks';
+import { useThemeSelection } from '../hooks/theme-hook';
 import { useBtnStyles } from '../styles/button-styles';
 import { useCardStyles } from '../styles/card-styles';
 
