@@ -99,7 +99,7 @@ const store = createStore(model, {
 export default store;
 ```
 
-- _note: initialState is where you'd want to pass in your initial state of your auth model. So that if anyone refreshing the app, they don't get booted out of a private route_
+- _note: initialState is where you'd want to pass in the initial state of your auth model. So that if anyone refreshes the app, they don't get booted out of a private route_
 - the base model being passed in:
 
 ```
@@ -373,6 +373,7 @@ onClick={() => {
 
 - iPhone status bar currently only supports white, black, and translucent
 - all sizes of your app's icons must be declared within the `index.html` and present within your public directory
+  ![appleicons](https://user-images.githubusercontent.com/15992455/52210604-9514a480-2855-11e9-99b3-03ceb062e0ea.png)
 - the same is true for splash screens.
 - push notifications are still not supported ¯\_(ツ)\_/¯
 - if the user has a ton of apps running on their iphone, safari may arbitrarily clear out your cache and terminate your service worker..
@@ -391,3 +392,5 @@ onClick={() => {
 - [Background fetch strategy documentation](https://developers.google.com/web/updates/2018/12/background-fetch)
 - [Preload Components that kickoff network request on mount w/ react.lazy](https://hackernoon.com/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d)
 - [PWA's are now supported within Google's Play Store!!!](https://medium.com/@firt/google-play-store-now-open-for-progressive-web-apps-ec6f3c6ff3cc)
+- [Handling Network Request w/ RxJs](https://itnext.io/working-with-axios-and-rxjs-to-make-simple-ajax-service-module-6fda9ecdaf9f)
+- [Tips for imroving your PWA iOS user's experience](https://www.netguru.com/codestories/few-tips-that-will-make-your-pwa-on-ios-feel-like-native)

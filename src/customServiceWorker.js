@@ -1,6 +1,11 @@
 // See https://developers.google.com/web/tools/workbox/guides/configure-workbox
 workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
 
+workbox.core.setCacheNameDetails({
+  prefix: 'git-lyrics',
+  suffix: 'v1'
+});
+
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event =>
   event.waitUntil(self.clients.claim())
