@@ -72,7 +72,7 @@ react-pwa-boilerplate/
 - **build step configuration:**
   _this is already set up within the project in the `config-overrides` file._
 
-```
+```javascript
 // config-overrides.js
 /* config-overrides.js */
 
@@ -104,7 +104,7 @@ module.exports = function override(config, env) {
 
 - the base configuration of the store is as follows:
 
-```
+```javascript
 // configureStore.js
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore } from 'easy-peasy';
@@ -126,7 +126,7 @@ export default store;
 - _note: initialState is where you'd want to pass in the initial state of your auth model. So that if anyone refreshes the app, they don't get booted out of a private route_
 - the base model being passed in:
 
-```
+```javascript
 // models/index.js
 import { settingsModel } from './settings-model';
 import { musicModel } from './music-model';
@@ -139,7 +139,7 @@ export const model = {
 
 - sample model:
 
-```
+```javascript
 // models/settings-model.js
 import {
   checkLocalStorage,
@@ -168,7 +168,7 @@ export const settingsModel = {
 - we can also bypass pulling in sagas or thunks by using [easy-peasy](https://github.com/ctrlplusb/easy-peasy)'s effect function
 - sample effect:
 
-```
+```javascript
 // models/music-model.js
 ..code
 
@@ -207,7 +207,7 @@ export const musicModel = {
 
 - example:
 
-```
+```javascript
 // components/input-field-component.js
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -241,7 +241,7 @@ export const InputField = ({
 
 - base index file:
 
-```
+```javascript
 // routes/index.js
 import React from 'react';
 import { Route, Router, Switch } from 'react-router';
@@ -280,7 +280,7 @@ export const Routes = () => (
 
 - if authenticated routes are needed:
 
-```
+```javascript
 // routes/PrivateRoute.js
 import React from 'react';
 import { Redirect, Route, withRouter } from 'react-router-dom';
@@ -316,7 +316,7 @@ export default withRouter(PrivateRoute);
 
 - with an observable pattern, we can cancel a flight mid request by unsubscribing from it
 
-```
+```javascript
 // services/music-service.js
 ..code
 export const fetchLyrics$ = payload =>
@@ -374,7 +374,7 @@ onClick={() => {
 
 - `netlify.toml` in the root of the app
 
-```
+```toml
 [build]
   command = "yarn build"
   publish = "build"
