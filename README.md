@@ -316,6 +316,7 @@ export default withRouter(PrivateRoute);
 
 - with an observable pattern, we can cancel a flight mid request by unsubscribing from it
 
+- [ ] todo: add axios cancelToken
 ```javascript
 // services/music-service.js
 ..code
