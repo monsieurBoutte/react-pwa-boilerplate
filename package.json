@@ -10,7 +10,7 @@
     "easy-peasy": "^1.7.0",
     "final-form": "^4.11.0",
     "history": "^4.7.2",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.19",
     "react": "^16.8.0",
     "react-app-rewire-workbox": "^2.0.1",
     "react-dom": "^16.8.0",
